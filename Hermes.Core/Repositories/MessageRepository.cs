@@ -1,6 +1,4 @@
-﻿using MimeKit;
-
-namespace Hermes.Core.Repositories
+﻿namespace Hermes.Core.Repositories
 {
     public class MessageRepository
     {
@@ -9,13 +7,6 @@ namespace Hermes.Core.Repositories
         public IEnumerable<Message>  Messages() => messages;
 
         public void Add(Message message) => messages.Add(message);
-
-        public bool Contains(MimeMessage message) =>
-            Contains(
-                message.From.ToString(),
-                message.To.ToString(),
-                message.Subject,
-                message.Body.ToString());
 
         public bool Contains(string from, string to, string subject, string body) =>
             messages.Any(message =>

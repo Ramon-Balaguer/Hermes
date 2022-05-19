@@ -23,7 +23,12 @@ namespace Hermes.Core.Tests
             var message = await SendMail();
 
             hermesServer.Shutdown();
-            hermesServer.Should().MessageReceived(message);
+            hermesServer.Should().MessageReceived(
+                    message.From.ToString(),
+                    message.To.ToString(),
+                    message.Subject,
+                    message.Body.ToString()
+                    );
         }
 
         [Fact]

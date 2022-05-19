@@ -1,5 +1,4 @@
-﻿using MimeKit;
-using SmtpServer;
+﻿using SmtpServer;
 
 namespace Hermes.Core
 {
@@ -35,11 +34,6 @@ namespace Hermes.Core
         public IEnumerable<Message> ReceivedMessages()
         {
             return messages.Get();
-        }
-
-        public bool Contains(MimeMessage message)
-        {
-            return messages.Contains(message);
         }
 
         public bool Contains(string from, string to, string subject, string body)

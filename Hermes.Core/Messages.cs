@@ -34,11 +34,6 @@ public class Messages : MessageStore
     {
         return messageRepository.Messages();
     }
-    
-    public bool Contains(MimeMessage message)
-    {
-        return messageRepository.Contains(message);
-    }
 
     public bool Contains(string from, string to, string subject, string body)
     {
