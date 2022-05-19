@@ -7,11 +7,32 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hermes.Api", "Hermes.Api\He
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hermes.Api.Tests", "Hermes.Api.Tests\Hermes.Api.Tests.csproj", "{97C7119C-CB26-4F9B-9A57-1A3357CF9EC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermes.Core", "Hermes.Core\Hermes.Core.csproj", "{C1935BE5-7763-4699-AA79-CD1CEBB9D2E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hermes.Core", "Hermes.Core\Hermes.Core.csproj", "{C1935BE5-7763-4699-AA79-CD1CEBB9D2E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermes.FluentAssertions", "Hermes.FluentAssertions\Hermes.FluentAssertions.csproj", "{8311A570-1FA0-43CB-BF52-F7615FF8B3E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hermes.FluentAssertions", "Hermes.FluentAssertions\Hermes.FluentAssertions.csproj", "{8311A570-1FA0-43CB-BF52-F7615FF8B3E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermes.Core.Tests", "Hermes.Core.Tests\Hermes.Core.Tests.csproj", "{F0EC029D-61B9-409C-9D4A-4D23B324DF59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hermes.Core.Tests", "Hermes.Core.Tests\Hermes.Core.Tests.csproj", "{F0EC029D-61B9-409C-9D4A-4D23B324DF59}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Hermes.SPA", "Hermes.SPA\", "{3F10B6C1-668C-466C-9382-CE9E10CDA50A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53588"
+		Debug.AspNetCompiler.PhysicalPath = "Hermes.SPA\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53588\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53588"
+		Release.AspNetCompiler.PhysicalPath = "Hermes.SPA\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53588\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53588"
+		SlnRelativePath = "Hermes.SPA\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +60,10 @@ Global
 		{F0EC029D-61B9-409C-9D4A-4D23B324DF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0EC029D-61B9-409C-9D4A-4D23B324DF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0EC029D-61B9-409C-9D4A-4D23B324DF59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F10B6C1-668C-466C-9382-CE9E10CDA50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F10B6C1-668C-466C-9382-CE9E10CDA50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F10B6C1-668C-466C-9382-CE9E10CDA50A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F10B6C1-668C-466C-9382-CE9E10CDA50A}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
