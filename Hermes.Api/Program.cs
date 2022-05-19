@@ -1,5 +1,6 @@
 using Hermes.Core;
-var hermesServer = new HermesServer(25, 587);
+var portsSmtp = new[] {25, 587};
+var hermesServer = new HermesServer(portsSmtp);
 hermesServer.Start();
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,5 +30,12 @@ app.MapGet("/messages", () =>
     }).OrderByDescending(message => message.ReceivedTime);
 })
 .WithName("GetMessages");
+
+app.MapGet("/configuration", () => new
+    {
+        Ports = portsSmtp,
+        Name = "hermes.voxelgroup.net"
+    })
+    .WithName("GetConfiguration");
 
 app.Run();
