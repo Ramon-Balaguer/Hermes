@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermes.Api", "Hermes\Hermes.Api.csproj", "{0C18F69D-24C7-49F1-A68C-EFE072EB285E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermes.Api.Tests", "Hermes.Api.Tests\Hermes.Api.Tests.csproj", "{97C7119C-CB26-4F9B-9A57-1A3357CF9EC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C18F69D-24C7-49F1-A68C-EFE072EB285E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C18F69D-24C7-49F1-A68C-EFE072EB285E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C18F69D-24C7-49F1-A68C-EFE072EB285E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C18F69D-24C7-49F1-A68C-EFE072EB285E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C7119C-CB26-4F9B-9A57-1A3357CF9EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C7119C-CB26-4F9B-9A57-1A3357CF9EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C7119C-CB26-4F9B-9A57-1A3357CF9EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C7119C-CB26-4F9B-9A57-1A3357CF9EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8F1D751-C637-41AD-9936-CA56D67530C5}
+	EndGlobalSection
+EndGlobal
