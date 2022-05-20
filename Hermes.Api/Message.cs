@@ -2,10 +2,19 @@
 {
     public class Message
     {
-        public string To { get; set; } = null!;
-        public string From { get; set; } = null!;
-        public string Subject { get; set; } = null!;
-        public string Body { get; set; } = null!;
-        public DateTime ReceivedTime { get; set; }
+        public Message(string to, string from, string subject, string body, DateTime receivedTime)
+        {
+            this.To = to;
+            this.From = from;
+            this.Subject = subject;
+            this.Body = body;
+            this.ReceivedTime = receivedTime;
+        }
+
+        public string To { get; init; }
+        public string From { get; init; }
+        public string Subject { get; init; }
+        public string Body { get; init; }
+        public DateTime ReceivedTime { get; init; }
     }
 }

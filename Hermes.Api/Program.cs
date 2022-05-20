@@ -1,3 +1,4 @@
+using Hermes.Api;
 using Hermes.Core;
 var portsSmtp = new[] {25, 587};
 var hermesServer = new HermesServer(portsSmtp);
@@ -20,22 +21,17 @@ app.UseHttpsRedirection();
 
 app.MapGet("/messages", () =>
 {
-    return hermesServer.ReceivedMessages().Select(message => new Hermes.Api.Message()
-    {
-        Body = message.Value.Body.ToString(),
-        To = message.Value.To.ToString(),
-        From = message.Value.From.ToString(),
-        Subject = message.Value.Subject.ToString(),
-        ReceivedTime = message.ReceivedTime
-    }).OrderByDescending(message => message.ReceivedTime);
+    return hermesServer.ReceivedMessages().Select(message => new Hermes.Api.Message(
+        message.Value.Body.ToString(),
+        message.Value.To.ToString(),
+        message.Value.From.ToString(),
+        message.Value.Subject.ToString(),
+        message.ReceivedTime
+        )).OrderByDescending(message => message.ReceivedTime);
 })
 .WithName("GetMessages");
 
-app.MapGet("/configuration", () => new
-    {
-        Ports = portsSmtp,
-        Name = "hermes.voxelgroup.net"
-    })
+app.MapGet("/configuration", () => new Configuration(portsSmtp, "hermes.voxelgroup.net"))
     .WithName("GetConfiguration");
 
 app.Run();
