@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableModule } from 'primeng/table';
 import { MessagesGridComponent } from './messages-grid/messages-grid.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HermesApiService } from './messages-grid/api/hermesApi.service';
 
 
 @NgModule({
@@ -15,9 +17,10 @@ import { MessagesGridComponent } from './messages-grid/messages-grid.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TableModule
+    TableModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HermesApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 namespace Hermes.Api;
 
-public class Configuration
+public class ServiceInformation
 {
-    public Configuration(int[] ports, string name)
+    public ServiceInformation(int[] ports, string name)
     {
         this.Ports = ports;
         this.Name = name;
