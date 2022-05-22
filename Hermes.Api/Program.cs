@@ -44,7 +44,7 @@ app.MapGet("/messages", () =>
 
 app.MapDelete("/messages", () => hermesServer.DeleteAllMessages()).WithName("DeleteMessages");
 
-app.MapGet("/configuration", () => new ServiceInformation(portsSmtp, "hermes.voxelgroup.net"))
-    .WithName("GetConfiguration");
+app.MapGet("/serviceInformation", () => new ServiceInformation(portsSmtp, "hermes.voxelgroup.net"))
+    .WithName("GetServiceInformation");
 
 app.Run();

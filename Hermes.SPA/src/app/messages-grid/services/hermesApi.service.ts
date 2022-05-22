@@ -98,42 +98,6 @@ export class HermesApiService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getConfiguration(observe?: 'body', reportProgress?: boolean): Observable<ServiceInformation>;
-    public getConfiguration(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ServiceInformation>>;
-    public getConfiguration(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ServiceInformation>>;
-    public getConfiguration(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<ServiceInformation>('get',`${this.basePath}/configuration`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
     public getMessages(observe?: 'body', reportProgress?: boolean): Observable<Array<Message>>;
     public getMessages(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Message>>>;
     public getMessages(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Message>>>;
@@ -155,6 +119,42 @@ export class HermesApiService {
         ];
 
         return this.httpClient.request<Array<Message>>('get',`${this.basePath}/messages`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getServiceInformation(observe?: 'body', reportProgress?: boolean): Observable<ServiceInformation>;
+    public getServiceInformation(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ServiceInformation>>;
+    public getServiceInformation(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ServiceInformation>>;
+    public getServiceInformation(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ServiceInformation>('get',`${this.basePath}/serviceInformation`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

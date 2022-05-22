@@ -16,9 +16,6 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Hermes'
-      },
-      {
         label: 'Delete All',
         icon: 'pi pi-fw pi-trash',
         command: () => this.actionService.handlerAction(Actions.DeleteAll)
