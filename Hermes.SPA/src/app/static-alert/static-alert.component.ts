@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Message} from 'primeng/api';
 import { Subscription } from 'rxjs';
-import { ServiceInformation } from '../messages-grid/model/serviceInformation';
-import { HermesApiService } from '../messages-grid/services/hermesApi.service';
+import { ServiceInformation } from '../services/hermesApi/serviceInformation';
+import { HermesApiService } from '../services/hermesApi/hermesApi.service';
 
 
 @Component({

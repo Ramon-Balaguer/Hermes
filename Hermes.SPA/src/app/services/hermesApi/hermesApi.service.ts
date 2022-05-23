@@ -17,8 +17,8 @@ import { CustomHttpUrlEncodingCodec }                        from '../../../enco
 
 import { Observable }                                        from 'rxjs';
 
-import { ServiceInformation } from '../model/serviceInformation';
-import { Message } from '../model/message';
+import { ServiceInformation } from './serviceInformation';
+import { Message } from './message';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../../../variables';
 import { Configuration }                                     from '../../../configuration';
