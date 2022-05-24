@@ -19,8 +19,10 @@ namespace Hermes.Core.Tests
         public async Task MessageSent()
         {
             hermesServer.Start();
+            using var smtpClient = new SmtpClient();
+            var message = CreateMessage();
 
-            var message = await SendMail();
+            await SendMail(smtpClient, message);
 
             hermesServer.Shutdown();
             hermesServer.Should().MessageReceived(
@@ -35,7 +37,9 @@ namespace Hermes.Core.Tests
         public async Task DontHaveMessagesWhenWheDeleteAllMessages()
         {
             hermesServer.Start();
-            _ = await SendMail();
+            using var smtpClient = new SmtpClient();
+            var message = CreateMessage();
+            await SendMail(smtpClient, message);
             hermesServer.Shutdown();
 
             hermesServer.DeleteAllMessages();
@@ -49,7 +53,7 @@ namespace Hermes.Core.Tests
             hermesServer.Start();
             hermesServer.Shutdown();
 
-            Func<Task> act = async () => _ = await SendMail();
+            Func<Task> act = async () => await SendMail(new SmtpClient(), CreateMessage());
 
             await act.Should().ThrowAsync<System.Net.Sockets.SocketException>();
         }
@@ -57,22 +61,25 @@ namespace Hermes.Core.Tests
         [Fact]
         public async Task ServerIsNotRespondingWhenServerWasNotStarted()
         {
-            Func<Task> act = async () => _ = await SendMail();
+            Func<Task> act = async () => await SendMail(new SmtpClient(), CreateMessage());
 
             await act.Should().ThrowAsync<System.Net.Sockets.SocketException>();
         }
 
-        private static async Task<MimeMessage> SendMail()
+        private static async Task SendMail(SmtpClient smtpClient, MimeMessage email)
+        {
+            await smtpClient.ConnectAsync("localhost", 25);
+            await smtpClient.SendAsync(email);
+            await smtpClient.DisconnectAsync(true);
+        }
+
+        private static MimeMessage CreateMessage()
         {
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("from_address@example.com"));
             email.To.Add(MailboxAddress.Parse("to_address@example.com"));
             email.Subject = "Test Email Subject";
             email.Body = new TextPart(TextFormat.Html) { Text = "<h1>Example HTML Message Body</h1>" };
-            using var smtp = new SmtpClient();
-            await smtp.ConnectAsync("localhost", 25);
-            await smtp.SendAsync(email);
-            await smtp.DisconnectAsync(true);
             return email;
         }
 
