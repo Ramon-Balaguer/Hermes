@@ -27,10 +27,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseCors(MyAllowSpecificOrigins);
 
-app.MapGet("/messages", () =>
+app.MapGet("/api/messages", () =>
 {
     return hermesServer.ReceivedMessages().Select(message => new Hermes.Api.Message(
         message.Value.To.ToString(),
@@ -42,9 +42,9 @@ app.MapGet("/messages", () =>
 })
 .WithName("GetMessages");
 
-app.MapDelete("/messages", () => hermesServer.DeleteAllMessages()).WithName("DeleteMessages");
+app.MapDelete("/api/messages", () => hermesServer.DeleteAllMessages()).WithName("DeleteMessages");
 
-app.MapGet("/serviceInformation", () => new ServiceInformation(portsSmtp, "hermes.voxelgroup.net"))
+app.MapGet("/api/serviceInformation", () => new ServiceInformation(portsSmtp, "hermes.voxelgroup.net"))
     .WithName("GetServiceInformation");
 
 app.Run();

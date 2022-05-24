@@ -12,6 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ActionsService } from './actions.service';
 import { StaticAlertComponent } from './static-alert/static-alert.component';
 import {MessagesModule} from 'primeng/messages';
+import { BASE_PATH } from 'src/variables';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -30,7 +32,10 @@ import {MessagesModule} from 'primeng/messages';
     HttpClientModule,
     MessagesModule
   ],
-  providers: [HermesApiService, ActionsService],
+  providers: [
+    HermesApiService, 
+    ActionsService, 
+    {provide: BASE_PATH, useValue: environment.HermesApiUrl}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,7 +27,7 @@ import { Configuration }                                     from '../../../conf
 @Injectable()
 export class HermesApiService {
 
-    protected basePath = 'https://localhost:7297';
+    protected basePath = '/';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
