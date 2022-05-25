@@ -16,7 +16,7 @@ namespace Hermes.Api.Tests
             var client = api.CreateClient();
             var mail = await SendMail();
 
-            var result = await client.GetAsync("/messages");
+            var result = await client.GetAsync("/api/messages");
 
             var contentJson = await result.Content.ReadAsStringAsync();
             var content = JsonConvert.DeserializeObject<List<Message>>(contentJson);
