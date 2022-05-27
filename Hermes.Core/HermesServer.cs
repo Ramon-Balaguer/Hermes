@@ -27,7 +27,6 @@ namespace Hermes.Core
 
         public void Shutdown()
         {
-            smtpServer.Shutdown();
             cancellationTokenSource.Cancel();
         }
 
@@ -43,7 +42,6 @@ namespace Hermes.Core
 
         public void Dispose()
         {
-            smtpServer.Shutdown();
             cancellationTokenSource.Cancel();
         }
 
