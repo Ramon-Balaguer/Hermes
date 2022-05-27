@@ -9,10 +9,11 @@ namespace Hermes.Core.Tests
     public class HermesServerShould : IDisposable
     {
         private readonly HermesServer hermesServer;
+        private const int SmtpPort = 587;
 
         public HermesServerShould()
         {
-            hermesServer = new HermesServer(25);
+            hermesServer = new HermesServer(SmtpPort);
         }
 
         [Fact]
@@ -68,7 +69,7 @@ namespace Hermes.Core.Tests
 
         private static async Task SendMail(SmtpClient smtpClient, MimeMessage email)
         {
-            await smtpClient.ConnectAsync("localhost", 25);
+            await smtpClient.ConnectAsync("localhost", SmtpPort);
             await smtpClient.SendAsync(email);
             await smtpClient.DisconnectAsync(true);
         }
